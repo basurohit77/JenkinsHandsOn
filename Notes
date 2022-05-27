@@ -1,0 +1,166 @@
+Devopps
+———————
+Jenkins is not only the CICD tool.  
+Azure Devops 
+Gitlab 
+Git ops 
+Aws devops.  
+ 
+Jenkins is opensource.  
+Cost 
+Fully managed services.  
+Now also it required an agent to run it.  
+They spin up a docker container. Run your job once finish the container get destroyed.  
+Save resources.  
+There is no previous foot print available that way it will be secure.  
+Travisci 
+
+Jenkins
+———————
+Discard Old Build: whenever you are building jar a war file get created. How many do you want ti 
+Project is Prameterized: do you project need parameter 
+Credentials Parameter:  you credential are generated using vault or okta. TTL: Time to leave.  
+Build Periodically: there is any change in the code or not. It is going to build it.  
+Poll SCM:  every 15 min it will poll the source code management. Check if there is  any change then only it will build it .  
+Whenever you create a job inside jenkins server it create a folder and execute your job in that particular folder.  
+ 
+Project 1 
+1. We will clone a java project 
+2. We will upload the java project in github in private repo.  
+3. We will integrate the same with jenkins. How to provide user name and token for our personal github.  
+4. We will install maven 
+5. Integrate maven with jenkins 
+6. Compile the project using maven.  
+7. Test the project using maven 
+8. Artiface 
+9. And try to deploy the jar file.  
+10. Checkstyle report.  
+11. Using ansbile I will install docker in second vm 
+12. Compile my project as a container 
+13. Deploy the same in the second server.  
+I will create a multi build pipeline also where we are going to deploy the same application in tomcat server.  
+ 
+Older project build on python 2.7 
+You somhow install python2.7  
+ 
+just writing few lines of code we can build an sophist aced application.  
+In maven we have built lifecycle.  
+ 
+For the person who want to build a project he need to learn a small set of command . And the POM file will ensure that thye get the result.  
+This build lifecycle is made of phases.  
+1. Validate: which will validate your code 
+2. Compile 
+3. Test 
+4. Package 
+5. Verify it 
+6. Install  
+7. Deploy 
+Mvn clean package 
+ 
+I build an java application.  
+Javac namofthejavafile 
+If I want to include a math functinally.  
+Import math.java 
+ 
+Maven has simplified the process of building java based application.  
+You use an ide like springtool suite or I use an eclipse or intelliz 
+ 
+Check style it generate a report regrding the code style used by the developer.  
+It check your code that you are following some format. Defined by sun_ccheck google_checks 
+
+Pipeline:
+———————
+
+What is pipeline. It is sequence of event or . It support your ci and cd .  
+There are two type of Jenkins Pipeline one is called as declarative pipeline. It is easy to create an declarative pipeline. It container pre-defined hierarchy . It gives you the ability to control all aspect of pipeline in a simple straight forward manner.  
+ 
+It is not an robust pipeline. If you jenkins server restarted. All the pipeline will be automatically start executing from the start 
+It consume too much resources.  
+We have to move to scripted pipeline.  
+It runs on top of your jenkins master with the help of light weight executer. It use very few resource to translate your pipeline into an atomic command.   it is implemented as code. It allow mutiple user to edit and execute the pipeline process.  
+Pipeline are always robust.  
+You can pause anytime 
+If you have big project scripted pipeline  
+You can run multiple jobs 
+It use Groovy  
+All this code can be stored in a file and run it.  
+It also improve user interface.  
+Due to some reason your jenkins server get restarted. It will again run the job where you let it.  
+ 
+Concept related to jenkins pipeline 
+ 
+1. Pipeline: where you provide set of instruction. For the entire build process. Build test delivering the application 
+2. Node: in which machine you want to execute the pipeline.  
+3. Stage: stages containes series of steps. . Using the stages only we can visualized the block 
+4. Step: where we are executing the task but step block will always containes one single task 
+ 
+Jenkins pipeline is a suit of plugins that support implementation and integration of ci and cd in jenkins.  
+I can automate the whole process of building my application. Using jenkins pipeline.  
+There are two different type of pipeline. 
+1. Declarative 
+2. Scripted:  I can have more control on my jobs also it gives you a view of your pipeline.  
+To create scripted pipeline you don’t need to learn groovy. You have to write down some groovy script when you are building an scripted pipeline.  
+But now a days jenkins has come up with something called as there own DSL which you can use to build your pipeline.  
+ 
+Jenkins pipeline is build using groovy.  
+Kubernetes  
+Openshift they are build using golang.  
+If you using ansible build using python.  
+So I am from operation team or a new developer.  
+I will tell you to deploy a container on kubernetes 
+Or provision tomcat server on multiple nodes.  
+You start writing go lang. it wil.l be around 300 lines of code 
+Shell script or python it will around 90 lines of code.  
+If I tell you to build an java application for payment gw. It will 30,000 lines of code using core java.  
+But if I tell you to build using spring it will apoung 100 lines of code.  
+ 
+They have build something called a domain specific language .  
+I don’t need to go deep down into the core language use to run this application.  
+They have simpliofied the process.  
+If git(autmatically with fe parameter it is going to clone your repo) 
+ 
+#############continues deliver or deployment#### 
+Continues delivery is the automation to deploy your changes in prod 
+Continues deployment it is the process of actual deployment.  
+Cd focus on release and release strategy.  
+ 
+1. We will convert this application into an container based image 
+2. Push the same to a container registry 
+####docker will come#### 
+3. Ansible will come #### using  
+4. Using ansible I will install docker in a second machine 
+5. And deploy my container based application.  
+One thing is we have multiple platform. And there is no portability in this platform 
+Today you are running your application in a vmware tommrow same app need to be run on aws or azure or ibm cloud.  
+What a developer want . If the application is running smooth in there laptop it should run anywhere as it is  
+More number of server. Also I can easily scale my app anytime.  
+Spinning an vm takes 4 to 5 minutes.  
+Spinning an container will take seconds to do the same.  
+Contianer are already stable problem it required a simple langauge to run it.  
+He created a simple laungauge to maintain your containerized platform.  
+ 
+Image in docker: it contains everything to run your application. But the footprint in small.  
+ 
+Pre baked image 
+As a developer you don’t need to tell the operation . That install this paclkages  
+When you run those image they are called as container.  
+Template is like an image 
+Vm is like an container 
+ 
+You can update an image 
+You can login inside a container. You can interact with a container.  
+Image will be always on rest 
+Container is always on running.  
+We will convert our application into an container based image.  
+To do the first we need to install docker 
+Then convert my application into an container based image 
+Push it to the hub.docker.com 
+############ 
+We will integrate the same in our pipeline.  
+ 
+1. We need to create a stage where I ll put the docker build command 
+2. Inside my project I ll put dockerfile and push the same to the github 
+3. We will enable scm  
+ 
+
+ 
