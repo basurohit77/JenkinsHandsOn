@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                echo 'building'
+            }
+        }
+        stage('Test'){
+            steps {
+                echo 'testing'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo 'deploying'
+            }
+        }
+        stage('run-parellel'){
+            steps {
+                parallel (
+                    a: {
+                        echo "this is branch a"
+                    },
+                    b: {
+                        echo "this is branch b"
+                    }
+                )
+            }
+        }
+    }
+}

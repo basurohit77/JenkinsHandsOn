@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+    tools {
+        maven "localMaven"
+    }
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('gopal-dockerhub')
+    }
+    stages {
+        stage('scm checkout') {
+            steps {
+                git credentialsId: 'git-token', url: 'https://github.com/gopal1409/springchat1.git'
+            }
+        }
+        stage('maven build'){
+            steps {
+            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('mvn test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('unit test') {
+            steps {
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
+        stage('check style') {
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
+        stage('checkstyle report') {
+            steps {
+                recordIssues(tools: [checkStyle(pattern: '**/checkstyle-result.xml')])
+            }
+        }
+        stage('build docker image') {
+            steps {
+                sh 'docker build -t gopal1409/chatapp .'
+            }
+        }
+        stage('docker login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('push docker image') {
+            steps {
+                sh 'docker push gopal1409/chatapp'
+            }
+        }
+        stage('docker using ansible') {
+            steps {
+                ansiblePlaybook credentialsId: 'ansible', disableHostKeyChecking: true,inventory: 'dev.inv', playbook: 'docker.yml'
+            }
+        }
+       
+    }
+}
